@@ -13,7 +13,7 @@ const App = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <StatusBar barStyle={"light-content"}></StatusBar>
+        <StatusBar barStyle={"light-content"}/>
         <Stack.Navigator initialRouteName="Main">
           <Stack.Screen name="Main" component={Main} options={{headerShown: false}}/>
           <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
