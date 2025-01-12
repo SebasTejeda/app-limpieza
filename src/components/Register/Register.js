@@ -1,5 +1,14 @@
-import { Alert, Text, TextInput, View, Pressable } from "react-native";
-import { useState } from "react";
+import React, { useState } from "react";
+import {
+  Alert,
+  Text,
+  TextInput,
+  View,
+  Pressable,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -10,9 +19,8 @@ const Register = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword1, setShowPassword1] = useState(false);
 
-  const insets = useSafeAreaInsets()
+  const insets = useSafeAreaInsets();
 
-  // Funciones de validación
   const validateEmail = (text) =>
     /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(text);
 
@@ -20,20 +28,21 @@ const Register = ({ navigation }) => {
     /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/.test(text);
 
   const handleRegister = () => {
-    // Aquí podrías hacer la lógica de registro en tu base de datos
     Alert.alert("Éxito", "Registro exitoso. Ahora puedes iniciar sesión.");
     navigation.navigate("Login");
   };
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
+    <KeyboardAvoidingView
+      style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}
+      behavior={Platform.OS === "ios" ? "padding" : undefined}
+    >
       <Text style={styles.header}>¡Vamos a empezar con tu registro!</Text>
       <View>
         <Text style={styles.stepText}>Paso 1:</Text>
         <Text style={styles.description}>Registra tu correo y contraseña</Text>
       </View>
 
-      {/* Correo electrónico */}
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Correo electrónico</Text>
         <TextInput
@@ -48,7 +57,6 @@ const Register = ({ navigation }) => {
         )}
       </View>
 
-      {/* Contraseña */}
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Contraseña</Text>
         <View style={styles.passwordContainer}>
@@ -70,7 +78,6 @@ const Register = ({ navigation }) => {
         )}
       </View>
 
-      {/* Confirmación de la contraseña */}
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Confirmar contraseña</Text>
         <View style={styles.passwordContainer}>
@@ -90,7 +97,6 @@ const Register = ({ navigation }) => {
         )}
       </View>
 
-      {/* Botón para registrar */}
       <Pressable
         disabled={!validateEmail(email) || !validatePassword(password) || confirmPassword !== password}
         onPress={handleRegister}
@@ -113,21 +119,21 @@ const Register = ({ navigation }) => {
                 : "#757575",
           },
         ]}>
-          Registrar
+          Continuar
         </Text>
       </Pressable>
 
       <View style={styles.footer}>
-        <Text>Ya estás registrado?</Text>
+        <Text>¿Ya tienes cuenta?</Text>
         <Pressable onPress={() => navigation.navigate("Login")}>
           <Text style={styles.loginText}>Inicia sesión</Text>
         </Pressable>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
@@ -144,7 +150,7 @@ const styles = {
   stepText: {
     fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 20,
+    marginBottom: 10,
     color: "#006064",
   },
   description: {
@@ -205,6 +211,6 @@ const styles = {
     color: "#00796b",
     fontWeight: "bold",
   },
-};
+});
 
 export default Register;

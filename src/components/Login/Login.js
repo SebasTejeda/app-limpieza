@@ -29,7 +29,7 @@ const Login = ({ navigation }) => {
     >
       <Text style={styles.title}>¡Bienvenido!</Text>
       <Text style={styles.subtitle}>
-        Ingresa tus credenciales para contratar personal de limpieza.
+        Ingresa tus credenciales para iniciar sesión
       </Text>
 
       <View style={styles.inputContainer}>
