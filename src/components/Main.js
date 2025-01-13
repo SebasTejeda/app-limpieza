@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Boton from "../Boton/Boton";
+import Boton from "./basic-components/Boton";
 
 const Main = () => {
   return (

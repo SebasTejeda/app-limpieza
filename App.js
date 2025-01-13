@@ -1,11 +1,11 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Login from './src/components/Login/Login';
-import Register from './src/components/Register/Register';
+import Login from './src/components/Login';
+import Register from './src/components/Register';
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "react-native";
-import Main from "./src/components/Main/Main";
+import Main from "./src/components/Main";
 
 const Stack = createStackNavigator();
 
