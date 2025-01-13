@@ -8,6 +8,7 @@ import LinkTextEnd from "./basic-components/LinkTextEnd";
 import Label from "./basic-components/Label";
 import Title from "./basic-components/Title";
 import Description from "./basic-components/Description";
+import Back from "./basic-components/Back";
 
 const Register = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -26,6 +27,7 @@ const Register = ({ navigation }) => {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
+      <Back nav='Login'/>
       <Title title='¡Vamos a empezar con tu registro!'></Title>
       <View>
         <Text style={styles.stepText}>Paso 1:</Text>

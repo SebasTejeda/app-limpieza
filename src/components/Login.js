@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Alert, Pressable, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Error from "./basic-components/Error";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import InputEmail from "./basic-components/InputEmail";
 import Label from "./basic-components/Label";
 import InputPassword from "./basic-components/InputPassword";
 import LinkTextEnd from "./basic-components/LinkTextEnd";
 import Title from "./basic-components/Title";
 import Description from "./basic-components/Description";
+import Back from "./basic-components/Back";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -27,6 +29,7 @@ const Login = () => {
         },
       ]}
     >
+      <Back nav='Main'/>
       <Title title='¡Bienvenido!'/>
       <Description description='Ingresa tus credenciales para iniciar sesión'/>
 
